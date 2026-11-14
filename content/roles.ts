@@ -1,37 +1,40 @@
 export type Role = {
-  letter: string;
   title: string;
-  owns: string;
+  /** One line on where the role sits in the institution. */
+  stance: string;
   summary: string;
   responsibilities: string[];
 };
 
-/** The two roles offered under Fractional Risk & Cybersecurity Leadership. */
+/**
+ * The two roles offered under Fractional Risk & Cybersecurity Leadership.
+ * In both, the institution keeps its own designated officer and Integryl is
+ * the senior expert behind them. A named officer role, examination
+ * preparation and incident response are scoped separately.
+ */
 export const roles: Role[] = [
   {
-    letter: "A",
     title: "Fractional Chief Information Security Officer",
-    owns: "Owns the security program",
+    stance: "The security expert behind your designated officer",
     summary:
-      "Sets security strategy and is accountable for it to the executive team, the board and regulators.",
+      "Gives your security officer senior counsel, a clear set of priorities and intelligence on the threats and vendors that matter to your institution.",
     responsibilities: [
-      "Security strategy, roadmap and budget",
-      "Oversight of testing, vulnerability management and incident response",
-      "Regulatory and examination response",
-      "Board and committee reporting",
+      "A baseline of the security program and its priorities",
+      "Monitoring of critical vendors, with alerts when one is affected",
+      "Review of policies, vendor assessments and security decisions",
+      "Quarterly priorities and a board-ready summary",
     ],
   },
   {
-    letter: "B",
     title: "Fractional Chief Technology & AI Risk Officer",
-    owns: "Owns the technology and AI risk program",
+    stance: "The technology and AI risk expert behind your leadership team",
     summary:
-      "Governs how the institution adopts technology and artificial intelligence, and the authority it extends to vendors, models and agents.",
+      "Helps leadership decide how the institution adopts technology and artificial intelligence, and what it permits vendors, models and agents to do.",
     responsibilities: [
-      "Technology and AI risk framework",
-      "Artificial intelligence governance, inventory and risk tiering",
-      "Third-party, cloud and platform risk",
-      "Board and committee reporting",
+      "A baseline of technology and artificial intelligence risk",
+      "Review of artificial intelligence use cases, vendors and platform decisions",
+      "Governance, inventory and risk tiering for artificial intelligence",
+      "Quarterly priorities and a board-ready summary",
     ],
   },
 ];

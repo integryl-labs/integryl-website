@@ -71,10 +71,10 @@ export default function HomePage() {
         <div className="wrap split split--wide-left rel">
           <div className="stack">
             <p className="label">{FRACTIONAL_OFFER}</p>
-            <h2>Executive leadership, on a fractional basis.</h2>
+            <h2>Senior leadership behind your designated officer.</h2>
             <p className="lede">
-              An Integryl leader joins your executive team with full accountability for the program and its
-              reporting to the board.
+              Your institution keeps its own officer. Integryl stands behind them with a senior leader and
+              intelligence tailored to your institution.
             </p>
             <div className="btn-row">
               <Link className="btn" href="/fractional-leadership">
@@ -84,10 +84,9 @@ export default function HomePage() {
           </div>
           <ul className="rows">
             {roles.map((role) => (
-              <li key={role.letter}>
-                <span className="num">{role.letter}</span>
+              <li key={role.title}>
                 <h3>{role.title}</h3>
-                <p>{role.owns}.</p>
+                <p>{role.stance}.</p>
               </li>
             ))}
           </ul>

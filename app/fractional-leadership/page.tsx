@@ -6,68 +6,59 @@ import { FRACTIONAL_OFFER, roles } from "@/content/roles";
 export const metadata: Metadata = {
   title: FRACTIONAL_OFFER,
   description:
-    "Integryl places a senior leader on your executive team as Chief Information Security Officer or Chief Technology & AI Risk Officer, on a fractional basis.",
+    "Your institution keeps its designated officer. Integryl stands behind them with a senior leader, intelligence tailored to your institution and clear priorities each quarter.",
 };
 
-const comparison = [
+/** The working rhythm of a mandate, by cadence. */
+const rhythm = [
   {
-    row: "Cost",
-    fullTime: "Executive compensation, benefits and search fees",
-    fractional: "A monthly retainer aligned to the mandate",
-  },
-  { row: "Time to start", fullTime: "An executive search measured in months", fractional: "In role within weeks" },
-  {
-    row: "Depth",
-    fullTime: "The experience of one individual",
-    fractional: "A senior leader supported by six practices",
+    when: "At the start",
+    title: "Baseline",
+    body: "A structured self-diagnostic across our six practices produces a baseline report: a view of the program by practice and your leading priorities.",
   },
   {
-    row: "Continuity",
-    fullTime: "A new search when the executive departs",
-    fractional: "Program knowledge retained by the firm",
+    when: "Every day",
+    title: "Watch",
+    body: "The Daily Brief, and monitoring of the vendors you depend on. When something affects your institution, you hear from us the same day.",
   },
   {
-    row: "Flexibility",
-    fullTime: "Permanent headcount",
-    fractional: "Expand, reduce or transition to a full-time appointment",
-  },
-];
-
-const steps = [
-  {
-    title: "Assess",
-    body: "A focused review of the program, its controls, its vendors and its open findings, concluding in a plan for the board.",
+    when: "Every week",
+    title: "Tailored note",
+    body: "The developments that apply to your institution, why they matter and what to do about them.",
   },
   {
-    title: "Embed",
-    body: "Your leader joins the executive team and its committees and becomes the named owner of the program.",
+    when: "Every month",
+    title: "Working session",
+    body: "Time with your Integryl leader on the decisions in front of you. Larger mandates add committee attendance and review of documents and decisions.",
   },
   {
-    title: "Lead",
-    body: "They set priorities, direct vendors and testing, maintain policy and report to the board and regulators.",
+    when: "Every quarter",
+    title: "Priorities",
+    body: "A priorities memo and a board-ready summary, tracked against the baseline.",
   },
   {
-    title: "Scale",
-    body: "The mandate expands for a major initiative, reduces as the program matures or transitions to a full-time appointment.",
+    when: "Every year",
+    title: "Record",
+    body: "The diagnostic is repeated to show progress, with a record of what was flagged and what we advised.",
   },
 ];
 
 const support = [
   {
     title: "Financial services depth",
-    body: "Our team brings deep financial services experience, so your leader is effective from the outset.",
+    body: "Our team brings deep financial services experience, so your leader is useful from the first conversation.",
   },
   {
-    title: "Proven executives",
-    body: "Your leader has previously held the accountability they assume on your behalf.",
+    title: "A senior practitioner",
+    body: "You work with one senior leader who knows your institution, not a rotating team.",
   },
   {
     title: "Six practices in support",
     body: "Penetration testing, resilience exercises and artificial intelligence reviews are delivered by the same firm.",
   },
   {
-    title: "Intelligence included",
-    body: "Each mandate includes Integryl Intelligence and a briefing tailored to your institution.",
+    title: "Intelligence built in",
+    body: "Integryl Intelligence is tailored to your institution, your regulators and your vendors.",
   },
 ];
 
@@ -77,10 +68,10 @@ export default function FractionalLeadershipPage() {
       <section className="hero hero--navy on-dark">
         <div className="wrap hero-inner">
           <p className="label">{FRACTIONAL_OFFER}</p>
-          <h1 className="hero-title--wide">Executive leadership, on a fractional basis.</h1>
+          <h1 className="hero-title--wide">Senior leadership behind your designated officer.</h1>
           <p className="lede">
-            Integryl places a senior leader on your executive team as Chief Information Security Officer or Chief
-            Technology &amp; AI Risk Officer. The role is fractional. The accountability is not.
+            Your institution keeps its own officer. Integryl stands behind them with a senior leader, intelligence
+            tailored to your institution and a clear set of priorities each quarter.
           </p>
           <div className="btn-row">
             <Link className="btn" href="/engage">
@@ -94,23 +85,24 @@ export default function FractionalLeadershipPage() {
       </section>
 
       <section className="section section--white">
-        <div className="wrap split">
-          <div className="stack">
+        <div className="wrap">
+          <div className="section-head section-head--wide">
             <p className="label">Why fractional</p>
-            <h2>Risk needs an owner at the leadership table.</h2>
+            <h2>Your officer carries the responsibility. They should not carry it alone.</h2>
           </div>
-          <div className="stack">
+          <div className="cols cols--3">
             <p className="lede">
-              Cybersecurity, technology and artificial intelligence now carry consequences that reach the board.
-              Each requires a senior owner with the authority to set direction and the experience to defend it.
+              Most institutions have a designated officer for security, technology or risk. Few can give that
+              person a senior specialist to turn to.
             </p>
             <p>
-              For many institutions, a full-time executive is difficult to justify, slow to recruit and hard to
-              retain. In the absence of one, responsibility is divided among providers and no one owns the outcome.
+              The role has widened. Cybersecurity, technology and artificial intelligence now reach the board, and
+              the questions arrive faster than one person can research them. A full-time executive to share the
+              load is difficult to justify and slow to recruit.
             </p>
             <p>
-              A fractional leader closes that gap: an experienced executive who knows your institution, serves on
-              your committees and answers to your board and your regulators.
+              A fractional leader from Integryl is the expert behind your officer: informed about your institution,
+              clear about what matters this quarter and present in your meetings as the mandate requires.
             </p>
           </div>
         </div>
@@ -120,14 +112,13 @@ export default function FractionalLeadershipPage() {
         <div className="wrap">
           <div className="section-head">
             <p className="label">The roles</p>
-            <h2>Two roles. One standard of accountability.</h2>
+            <h2>Two roles. One way of working.</h2>
           </div>
           <div className="cols cols--2">
             {roles.map((role) => (
-              <div className="seat" key={role.letter}>
-                <span className="num">{role.letter}</span>
+              <div className="seat" key={role.title}>
                 <h3>{role.title}</h3>
-                <p className="owns">{role.owns}</p>
+                <p className="owns">{role.stance}</p>
                 <p>{role.summary}</p>
                 <ul className="ticks">
                   {role.responsibilities.map((item) => (
@@ -137,36 +128,10 @@ export default function FractionalLeadershipPage() {
               </div>
             ))}
           </div>
-          <p className="fine note-gap">The two roles may be combined in a single mandate.</p>
-        </div>
-      </section>
-
-      <section className="section section--white section--rule">
-        <div className="wrap">
-          <div className="section-head">
-            <p className="label">The alternative</p>
-            <h2>Fractional and full-time leadership, compared.</h2>
-          </div>
-          <div className="table-scroll">
-            <table className="compare">
-              <thead>
-                <tr>
-                  <td />
-                  <th scope="col">Full-time executive</th>
-                  <th scope="col">Integryl fractional leader</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparison.map((line) => (
-                  <tr key={line.row}>
-                    <th scope="row">{line.row}</th>
-                    <td>{line.fullTime}</td>
-                    <td>{line.fractional}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <p className="fine note-gap">
+            The two roles may be combined in a single mandate. Where an institution needs a named officer,
+            examination preparation or incident response, we scope that separately.
+          </p>
         </div>
       </section>
 
@@ -174,17 +139,21 @@ export default function FractionalLeadershipPage() {
         <div className="wrap">
           <div className="section-head">
             <p className="label">How it works</p>
-            <h2>Part of your leadership team from the first week.</h2>
+            <h2>A working rhythm, built on intelligence about your institution.</h2>
           </div>
-          <div className="steps">
-            {steps.map((step, index) => (
-              <div className="step" key={step.title}>
-                <span className="num">{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
+          <div className="rhythm">
+            {rhythm.map((beat) => (
+              <div className="step" key={beat.title}>
+                <span className="num">{beat.when}</span>
+                <h3>{beat.title}</h3>
+                <p>{beat.body}</p>
               </div>
             ))}
           </div>
+          <p className="fine note-gap">
+            Mandates scale with the institution: from counsel and priorities, to a seat in your committees, to
+            leading a defined piece of work each quarter.
+          </p>
         </div>
       </section>
 
@@ -210,8 +179,8 @@ export default function FractionalLeadershipPage() {
           <figure className="quote">
             <hr className="rule rule--brass" />
             <blockquote>
-              “Risk is managed well when one senior person owns it. We take that role, and we are accountable for
-              it.”
+              “A designated officer should not have to carry the role alone. We stand behind them with the judgment
+              and the intelligence the role demands.”
             </blockquote>
             <figcaption className="label">Ian Lassonde · Founder &amp; Principal, Integryl</figcaption>
           </figure>
@@ -220,7 +189,7 @@ export default function FractionalLeadershipPage() {
 
       <Closing
         label="Engage"
-        title="Appoint an owner for the program."
+        title="Strengthen the officer you already have."
         body="Tell us where the program stands today. We will recommend the role and the mandate that fit."
       >
         <Link className="btn" href="/engage">

@@ -63,9 +63,10 @@ export default function AdvisoryPage() {
         <img className="ghost-mark" src="/img/integryl-symbol-reverse-two-tone.svg" alt="" />
         <div className="wrap stack rel">
           <p className="label">{FRACTIONAL_OFFER}</p>
-          <h2 className="measure">Six practices, led by one accountable executive.</h2>
+          <h2 className="measure">Six practices, behind one designated officer.</h2>
           <p className="lede">
-            Fractional leadership brings the full firm to your leadership table through a single senior leader.
+            Fractional leadership puts a senior Integryl leader, and the full firm, behind the officer you already
+            have.
           </p>
           <div className="btn-row">
             <Link className="btn" href="/fractional-leadership">

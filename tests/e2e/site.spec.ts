@@ -4,7 +4,7 @@ import { expect, test, type Page } from "@playwright/test";
 const routes = [
   { path: "/", h1: "Risk advisory for financial institutions." },
   { path: "/advisory", h1: "Six practices. One standard of work." },
-  { path: "/fractional-leadership", h1: "Executive leadership, on a fractional basis." },
+  { path: "/fractional-leadership", h1: "Senior leadership behind your designated officer." },
   { path: "/intelligence", h1: "Executive intelligence for financial services leaders." },
   { path: "/firm", h1: "Human led. AI powered." },
   { path: "/engage", h1: "Begin with a conversation." },
@@ -81,6 +81,41 @@ test("fractional page offers exactly the two roles", async ({ page }) => {
     "Fractional Chief Information Security Officer",
     "Fractional Chief Technology & AI Risk Officer",
   ]);
+});
+
+test("role cards carry titles only, with no letter labels", async ({ page }) => {
+  await page.goto("/fractional-leadership");
+  await expect(page.locator(".seat .num")).toHaveCount(0);
+  await page.goto("/");
+  await expect(page.locator(".rows .num")).toHaveCount(0);
+});
+
+test("fractional page does not promise a named officer or ownership", async ({ page }) => {
+  await page.goto("/fractional-leadership");
+  const body = await page.locator("main").innerText();
+  expect(body).not.toMatch(/owns the/i);
+  expect(body).not.toContain("accountability is not");
+  expect(body).toContain("designated officer");
+  expect(body).toContain("scope that separately");
+});
+
+test.describe("mobile menu", () => {
+  for (const path of ["/intelligence", "/"]) {
+    test(`opens as a solid panel over the page on ${path}`, async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 812 });
+      await page.goto(path);
+      const nav = page.locator("#site-nav");
+      await expect(nav).toBeHidden();
+      await page.getByRole("button", { name: "Menu" }).click();
+      await expect(nav).toBeVisible();
+      const background = await nav.evaluate((el) => getComputedStyle(el).backgroundColor);
+      expect(background).toMatch(/^rgb\(\d+, \d+, \d+\)$/);
+      await expect(nav.getByRole("link", { name: "Engage" })).toBeVisible();
+      await nav.getByRole("link", { name: "Advisory" }).click();
+      await expect(page).toHaveURL(/\/advisory$/);
+      await expect(nav).toBeHidden();
+    });
+  }
 });
 
 test("header and footer links resolve", async ({ page, request }) => {

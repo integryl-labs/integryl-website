@@ -30,6 +30,9 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <Link className="nav-engage" href="/engage" onClick={close}>
+            Engage
+          </Link>
         </nav>
         <Link className="btn btn--sm" href="/engage" onClick={close}>
           Engage
