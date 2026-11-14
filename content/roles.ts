@@ -22,7 +22,7 @@ export const roles: Role[] = [
       "A baseline of the security program and its priorities",
       "Monitoring of critical vendors, with alerts when one is affected",
       "Review of policies, vendor assessments and security decisions",
-      "Quarterly priorities and a board-ready summary",
+      "Quarterly priorities and a summary for senior leadership and the board",
     ],
   },
   {
@@ -34,7 +34,7 @@ export const roles: Role[] = [
       "A baseline of technology and artificial intelligence risk",
       "Review of artificial intelligence use cases, vendors and platform decisions",
       "Governance, inventory and risk tiering for artificial intelligence",
-      "Quarterly priorities and a board-ready summary",
+      "Quarterly priorities and a summary for senior leadership and the board",
     ],
   },
 ];

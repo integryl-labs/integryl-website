@@ -21,7 +21,7 @@ const process = [
   },
   {
     title: "Counsel",
-    body: "A senior Integryl leader works with your officer in regular sessions, sets clear priorities each quarter and reports in terms your board can use.",
+    body: "A senior Integryl leader works with your officer in regular sessions, sets clear priorities each quarter and reports in terms your senior leadership and board can use.",
   },
 ];
 
@@ -78,7 +78,7 @@ export default function FractionalLeadershipPage() {
               person a senior specialist to turn to.
             </p>
             <p>
-              The role has widened. Cybersecurity, technology and artificial intelligence now reach the board, and
+              The role has widened. Cybersecurity, technology and artificial intelligence now reach senior leadership and the board, and
               the questions arrive faster than one person can research them. A full-time executive to share the
               load is difficult to justify and slow to recruit.
             </p>

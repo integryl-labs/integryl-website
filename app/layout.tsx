@@ -21,7 +21,7 @@ const hanken = Hanken_Grotesk({
 });
 
 const description =
-  "Integryl advises boards and executive teams at financial institutions on artificial intelligence, cybersecurity and technology risk.";
+  "Integryl advises senior leadership and boards at financial institutions on artificial intelligence, cybersecurity and technology risk.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

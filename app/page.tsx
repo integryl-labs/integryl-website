@@ -13,7 +13,7 @@ export default function HomePage() {
           <p className="label">Artificial Intelligence · Cybersecurity · Risk</p>
           <h1>Risk advisory for financial institutions.</h1>
           <p className="lede">
-            Integryl advises boards and executive teams on artificial intelligence, cybersecurity and technology
+            Integryl advises senior leadership and boards on artificial intelligence, cybersecurity and technology
             risk. Our work is led by senior practitioners with deep financial services experience.
           </p>
           <div className="btn-row">

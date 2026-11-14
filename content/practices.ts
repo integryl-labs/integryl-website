@@ -65,7 +65,7 @@ export const practices: Practice[] = [
       "Enterprise and technology risk frameworks",
       "Policy and control design",
       "Regulatory readiness",
-      "Board and committee reporting",
+      "Reporting to senior leadership and boards",
     ],
   },
   {

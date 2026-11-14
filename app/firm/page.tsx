@@ -16,7 +16,7 @@ const commitments = [
   },
   {
     title: "Work that withstands scrutiny",
-    body: "Our conclusions are written for the board and prepared to stand up to audit and examination.",
+    body: "Our conclusions are written for senior leadership and boards, and prepared to stand up to audit and examination.",
   },
   {
     title: "Clarity",
