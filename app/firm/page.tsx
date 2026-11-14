@@ -129,21 +129,20 @@ export default function FirmPage() {
               <h3 className="leader-name">Ian Lassonde</h3>
               <p className="label">Chief Executive Officer</p>
               <p className="lede">
-                Ian is a cybersecurity and technology risk executive who has spent his career in financial
-                services, with leadership roles at Capital One, Discover, Truist, Wells Fargo, MUFG Union Bank and
-                TIAA.
+                As Chief Executive Officer of Integryl, Ian advises senior leadership and boards on artificial
+                intelligence, cybersecurity and technology risk, and oversees Integryl Intelligence, the firm’s
+                research publication.
               </p>
               <p>
-                He has built and led programs in both the first and second lines of defense, from hands-on
-                execution to independent oversight and challenge. At Discover, as Head of Technology &amp; Data Risk
-                Management, he led second line oversight of technology, cybersecurity, data, resiliency and
-                internal fraud risk, owned the enterprise business continuity and crisis management program, and
-                chaired the technology risk committee.
+                He has spent his career in financial services, with leadership roles at Capital One, Discover,
+                Truist, Wells Fargo, MUFG Union Bank and TIAA. He has built and run technology and security
+                programs, and he has been the executive responsible for overseeing and challenging them. At
+                Discover, he was Head of Technology &amp; Data Risk Management.
               </p>
               <p>
-                Ian has led global teams and complex regulatory engagements, and has advised financial institutions
-                on the early adoption of artificial intelligence and its risks. He remains hands-on, building and
-                securing artificial intelligence systems.
+                Ian has led global teams and complex regulatory engagements. He has advised financial institutions
+                on adopting artificial intelligence, and he still builds and secures artificial intelligence
+                systems himself.
               </p>
               <ul className="ticks">
                 {credentials.map((credential) => (
