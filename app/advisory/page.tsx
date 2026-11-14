@@ -59,8 +59,8 @@ export default function AdvisoryPage() {
         </div>
       </section>
 
-      <section className="section section--navy clip">
-        <img className="ghost-mark" src="/img/integryl-symbol-reverse-two-tone.svg" alt="" />
+      <section className="section section--ivory2 section--rule clip">
+        <img className="ghost-mark" src="/img/integryl-symbol-two-tone.svg" alt="" />
         <div className="wrap stack rel">
           <p className="label">{FRACTIONAL_OFFER}</p>
           <h2 className="measure">Six practices, behind one designated officer.</h2>
@@ -77,7 +77,6 @@ export default function AdvisoryPage() {
       </section>
 
       <Closing
-        rule
         label="Engage"
         title="Unsure where to begin?"
         body="Describe the challenge. We will advise on where we can help."

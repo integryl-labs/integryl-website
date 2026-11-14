@@ -47,6 +47,15 @@ for (const route of routes) {
       expect(overflow).toBeLessThanOrEqual(0);
     });
 
+    test("never stacks two navy blocks back to back", async ({ page }) => {
+      await page.goto(route.path);
+      const tones = await page.locator("main > section").evaluateAll((sections) =>
+        sections.map((s) => (s.matches(".section--navy, .closing, .hero--navy") ? "navy" : "light")),
+      );
+      const stacked = tones.filter((tone, i) => tone === "navy" && tones[i - 1] === "navy");
+      expect(stacked, tones.join(" > ")).toEqual([]);
+    });
+
     test("carries no retired or excluded content", async ({ page }) => {
       await page.goto(route.path);
       const body = await page.locator("body").innerText();

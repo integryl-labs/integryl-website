@@ -82,7 +82,7 @@ export default function IntelligencePage() {
         </div>
       </section>
 
-      <section className="section section--navy">
+      <section className="section section--rule">
         <div className="wrap">
           <div className="section-head">
             <p className="label">Editorial standard</p>
@@ -100,7 +100,6 @@ export default function IntelligencePage() {
       </section>
 
       <Closing
-        rule
         label="Integryl Intelligence"
         title="Read the latest edition."
         body="Current and past editions are published on the Integryl Intelligence site."
