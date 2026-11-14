@@ -4,7 +4,7 @@ import { expect, test, type Page } from "@playwright/test";
 const routes = [
   { path: "/", h1: "Risk advisory for financial institutions." },
   { path: "/advisory", h1: "Six practices. One standard of work." },
-  { path: "/fractional-leadership", h1: "Senior leadership behind your designated officer." },
+  { path: "/fractional-leadership", h1: "Senior risk and security leadership, sized to your institution." },
   { path: "/intelligence", h1: "Executive intelligence for financial services leaders." },
   { path: "/firm", h1: "Human led. AI powered." },
   { path: "/engage", h1: "Begin with a conversation." },
@@ -110,8 +110,16 @@ test("fractional page does not promise a named officer or ownership", async ({ p
   const body = await page.locator("main").innerText();
   expect(body).not.toMatch(/owns the/i);
   expect(body).not.toContain("accountability is not");
-  expect(body).toContain("designated officer");
   expect(body).toContain("scope that separately");
+});
+
+test("fractional page speaks to institutions with and without an officer", async ({ page }) => {
+  await page.goto("/fractional-leadership");
+  const cases = await page.locator("main > section").nth(1).locator("h3").allTextContents();
+  expect(cases).toEqual(["You have a dedicated officer", "You have named one of your executives", "You have no one yet"]);
+  const body = await page.locator("main").innerText();
+  expect(body).not.toContain("officer you already have");
+  expect(body).not.toContain("keeps its own officer");
 });
 
 test.describe("mobile menu", () => {

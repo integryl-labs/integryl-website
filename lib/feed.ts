@@ -36,7 +36,21 @@ function asString(value: unknown): string {
   return typeof value === "string" ? value.trim() : typeof value === "number" ? String(value) : "";
 }
 
-/** Returns the newest item of an RSS 2.0 feed, or null when there is none. */
+const DEEP_DIVE = /deep dive/i;
+
+function isDeepDive(entry: Record<string, unknown>): boolean {
+  const raw = entry.category;
+  const categories = (Array.isArray(raw) ? raw : [raw]).map(asString);
+  return DEEP_DIVE.test(asString(entry.title)) || categories.some((category) => DEEP_DIVE.test(category));
+}
+
+/**
+ * Returns the newest Daily Brief in an RSS 2.0 feed, or null when there is none.
+ *
+ * The feed carries Deep Dives as well. Those posts are gated to subscribers, so
+ * they are skipped: the card on the home page must never link to a subscribe wall.
+ * An item with no usable title or link is skipped too.
+ */
 export function parseFeed(xml: string): Edition | null {
   if (!xml.trim()) return null;
 
@@ -47,17 +61,23 @@ export function parseFeed(xml: string): Edition | null {
     return null;
   }
 
-  const channel = (parsed as { rss?: { channel?: { item?: unknown } } })?.rss?.channel;
-  const raw = channel?.item;
-  const first = (Array.isArray(raw) ? raw[0] : raw) as Record<string, unknown> | undefined;
-  if (!first || typeof first !== "object") return null;
+  const raw = (parsed as { rss?: { channel?: { item?: unknown } } })?.rss?.channel?.item;
+  const entries = (Array.isArray(raw) ? raw : [raw]).filter(
+    (entry): entry is Record<string, unknown> => !!entry && typeof entry === "object",
+  );
 
-  const title = plainText(asString(first.title));
-  const url = asString(first.link);
-  if (!title || !/^https?:\/\//.test(url)) return null;
+  for (const entry of entries) {
+    if (isDeepDive(entry)) continue;
 
-  const parsedDate = new Date(asString(first.pubDate));
-  const date = Number.isNaN(parsedDate.getTime()) ? "" : parsedDate.toISOString();
+    const title = plainText(asString(entry.title));
+    const url = asString(entry.link);
+    if (!title || !/^https?:\/\//.test(url)) continue;
 
-  return { title, url, date, summary: truncate(plainText(asString(first.description))) };
+    const parsedDate = new Date(asString(entry.pubDate));
+    const date = Number.isNaN(parsedDate.getTime()) ? "" : parsedDate.toISOString();
+
+    return { title, url, date, summary: truncate(plainText(asString(entry.description))) };
+  }
+
+  return null;
 }

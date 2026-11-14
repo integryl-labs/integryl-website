@@ -76,7 +76,7 @@ export default function IntelligencePage() {
               />
               <p className="label">As developments warrant</p>
               <h3>Deep Dives</h3>
-              <p>A single development examined in full, with practical guidance for leadership.</p>
+              <p>A single development examined in full, with practical guidance for leadership. Free to subscribers.</p>
             </div>
           </div>
         </div>

@@ -8,16 +8,17 @@ export type Role = {
 
 /**
  * The two roles offered under Fractional Risk & Cybersecurity Leadership.
- * In both, the institution keeps its own designated officer and Integryl is
- * the senior expert behind them. A named officer role, examination
+ * In both, Integryl is the senior expert behind whoever carries the role at
+ * the institution: a dedicated officer, a named executive, or someone yet to
+ * be chosen. A named officer role, examination
  * preparation and incident response are scoped separately.
  */
 export const roles: Role[] = [
   {
     title: "Fractional Chief Information Security Officer",
-    stance: "The security expert behind your designated officer",
+    stance: "Senior security expertise behind whoever holds the role",
     summary:
-      "Gives your security officer senior counsel, a clear set of priorities and intelligence on the threats and vendors that matter to your institution.",
+      "Gives the person responsible for security senior counsel, a clear set of priorities and intelligence on the threats and vendors that matter to your institution.",
     responsibilities: [
       "A baseline of the security program and its priorities",
       "Monitoring of critical vendors, with alerts when one is affected",

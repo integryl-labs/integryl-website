@@ -44,10 +44,10 @@ export default function HomePage() {
         <div className="wrap split split--wide-left rel">
           <div className="stack">
             <p className="label">{FRACTIONAL_OFFER}</p>
-            <h2>Senior leadership behind your designated officer.</h2>
+            <h2>Senior risk and security leadership, sized to your institution.</h2>
             <p className="lede">
-              Your institution keeps its own officer. Integryl stands behind them with a senior leader and
-              intelligence tailored to your institution.
+              A senior Integryl leader and intelligence tailored to your institution, behind whoever carries the
+              role today.
             </p>
             <div className="btn-row">
               <Link className="btn" href="/fractional-leadership">

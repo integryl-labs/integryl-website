@@ -6,8 +6,24 @@ import { FRACTIONAL_OFFER, roles } from "@/content/roles";
 export const metadata: Metadata = {
   title: FRACTIONAL_OFFER,
   description:
-    "Your institution keeps its designated officer. Integryl stands behind them with a senior leader, intelligence tailored to your institution and clear priorities each quarter.",
+    "Senior risk and security leadership for financial institutions, on a fractional basis: a senior leader, intelligence tailored to your institution and clear priorities each quarter.",
 };
+
+/** The three situations an institution may be in when it comes to us. */
+const situations = [
+  {
+    title: "You have a dedicated officer",
+    body: "We stand behind them with senior counsel and intelligence, so they are not the only expert in the room.",
+  },
+  {
+    title: "You have named one of your executives",
+    body: "Many institutions give the role to an executive who has another job. We give that person the specialist depth the role demands.",
+  },
+  {
+    title: "You have no one yet",
+    body: "We help you decide where the role should sit and who should hold it, and we support them from the first day.",
+  },
+];
 
 /** How a mandate works, in three parts. */
 const process = [
@@ -39,8 +55,8 @@ const support = [
     body: "Penetration testing, resilience exercises and artificial intelligence reviews are delivered by the same firm.",
   },
   {
-    title: "Intelligence built in",
-    body: "Integryl Intelligence is tailored to your institution, your regulators and your vendors.",
+    title: "Intelligence, applied",
+    body: "Each mandate includes a weekly briefing written for your institution, and an alert when a development affects your vendors or your regulators.",
   },
 ];
 
@@ -50,10 +66,10 @@ export default function FractionalLeadershipPage() {
       <section className="hero hero--navy on-dark">
         <div className="wrap hero-inner">
           <p className="label">{FRACTIONAL_OFFER}</p>
-          <h1 className="hero-title--wide">Senior leadership behind your designated officer.</h1>
+          <h1 className="hero-title--wide">Senior risk and security leadership, sized to your institution.</h1>
           <p className="lede">
-            Your institution keeps its own officer. Integryl stands behind them with a senior leader, intelligence
-            tailored to your institution and a clear set of priorities each quarter.
+            A senior Integryl leader, intelligence tailored to your institution and a clear set of priorities each
+            quarter, behind whoever carries the role today.
           </p>
           <div className="btn-row">
             <Link className="btn" href="/engage">
@@ -69,23 +85,16 @@ export default function FractionalLeadershipPage() {
       <section className="section section--white">
         <div className="wrap">
           <div className="section-head section-head--wide">
-            <p className="label">Why fractional</p>
-            <h2>Your officer carries the responsibility. They should not carry it alone.</h2>
+            <p className="label">Where you are today</p>
+            <h2>Wherever the role sits, it should not be carried alone.</h2>
           </div>
           <div className="cols cols--3">
-            <p className="lede">
-              Most institutions have a designated officer for security, technology or risk. Few can give that
-              person a senior specialist to turn to.
-            </p>
-            <p>
-              The role has widened. Cybersecurity, technology and artificial intelligence now reach senior leadership and the board, and
-              the questions arrive faster than one person can research them. A full-time executive to share the
-              load is difficult to justify and slow to recruit.
-            </p>
-            <p>
-              A fractional leader from Integryl is the expert behind your officer: informed about your institution,
-              clear about what matters this quarter and present in your meetings as the mandate requires.
-            </p>
+            {situations.map((situation) => (
+              <div className="point" key={situation.title}>
+                <h3>{situation.title}</h3>
+                <p>{situation.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -157,7 +166,7 @@ export default function FractionalLeadershipPage() {
 
       <Closing
         label="Engage"
-        title="Strengthen the officer you already have."
+        title="Put senior judgment behind the role."
         body="Tell us where the program stands today. We will recommend the role and the mandate that fit."
       >
         <Link className="btn" href="/engage">

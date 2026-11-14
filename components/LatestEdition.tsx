@@ -11,8 +11,8 @@ const dateFormat = new Intl.DateTimeFormat("en-US", {
 });
 
 /**
- * The card under the home hero. Shows the newest Integryl Intelligence
- * post when the feed has one, and a standing introduction when it does not.
+ * The card under the home hero. Shows the newest Daily Brief when the feed
+ * has one, and a standing introduction when it does not.
  */
 export async function LatestEdition() {
   const edition = await getLatestEdition();
@@ -27,7 +27,7 @@ export async function LatestEdition() {
                 <div className="brief-meta">
                   <p className="label">
                     <span className="dot" aria-hidden="true" />
-                    Integryl Intelligence · Latest edition
+                    Integryl Intelligence · Daily Brief
                   </p>
                   {edition.date ? <p className="fine">{dateFormat.format(new Date(edition.date))}</p> : null}
                 </div>
@@ -71,6 +71,7 @@ export async function LatestEdition() {
                 Subscribe
               </a>
             </div>
+            <p className="fine">Complimentary. Unsubscribe at any time.</p>
           </div>
         </div>
       </div>

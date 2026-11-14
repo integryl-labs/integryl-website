@@ -52,7 +52,7 @@ export default function FirmPage() {
             </p>
             <p>
               Integryl was founded to provide senior, practical support for that work. We test, we advise and,
-              through fractional leadership, we stand behind the officers who carry the responsibility.
+              through fractional leadership, we stand behind the people who carry the responsibility.
             </p>
             <p>
               Our focus is financial institutions. We also advise organizations in other regulated sectors where

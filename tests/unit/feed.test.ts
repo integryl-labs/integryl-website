@@ -43,6 +43,24 @@ describe("parseFeed", () => {
     expect(parseFeed("")).toBeNull();
   });
 
+  it("skips a Deep Dive that is newer than the latest Daily Brief", () => {
+    const xml = wrap(
+      item("Deep Dive: The OCC framework", "Thu, 05 Nov 2026 14:00:00 +0000") +
+        item("Daily Brief: Thursday, November 5", "Thu, 05 Nov 2026 12:30:00 +0000"),
+    );
+    expect(parseFeed(xml)?.title).toBe("Daily Brief: Thursday, November 5");
+  });
+
+  it("recognizes a Deep Dive by its category as well as its title", () => {
+    const tagged = `<item><title>The OCC framework</title><link>https://example.com/occ</link><pubDate>Thu, 05 Nov 2026 14:00:00 +0000</pubDate><category><![CDATA[Deep Dive]]></category><description>x</description></item>`;
+    const xml = wrap(tagged + item("Banks tighten the walls around AI", "Tue, 03 Nov 2026 12:30:00 +0000"));
+    expect(parseFeed(xml)?.title).toBe("Banks tighten the walls around AI");
+  });
+
+  it("returns null when the feed holds only Deep Dives", () => {
+    expect(parseFeed(wrap(item("Deep Dive: Only this", "Thu, 05 Nov 2026 14:00:00 +0000")))).toBeNull();
+  });
+
   it("returns null when the item has no usable link", () => {
     expect(parseFeed(wrap("<item><title>No link</title></item>"))).toBeNull();
   });
