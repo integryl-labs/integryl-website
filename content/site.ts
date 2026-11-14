@@ -3,6 +3,7 @@ export const SITE_NAME = "Integryl";
 export const TAGLINE = "Risk advisory for financial institutions.";
 export const CONTACT_EMAIL = "hello@integryl.com";
 export const OFFICE = "Hilton Head, South Carolina";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/ianlassonde/";
 
 /**
  * Integryl Intelligence is published on Beehiiv. Every "read" and "subscribe"

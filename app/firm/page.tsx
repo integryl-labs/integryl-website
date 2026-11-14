@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Closing } from "@/components/Closing";
-import { CONTACT_EMAIL } from "@/content/site";
+import { CONTACT_EMAIL, LINKEDIN_URL } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "The Firm",
@@ -123,22 +123,27 @@ export default function FirmPage() {
               <h3 className="leader-name">Ian Lassonde</h3>
               <p className="label">Chief Executive Officer</p>
               <p className="lede">
-                As Chief Executive Officer of Integryl, Ian leads a team of senior consultants and advises senior
-                leadership and boards on artificial intelligence, cybersecurity and technology risk.
+                Ian has spent his career managing technology and security risk inside major financial
+                institutions. At Integryl, he leads a team of practitioners who bring that experience to senior
+                leadership and boards.
               </p>
               <p>
-                He has spent his career in financial services, with leadership roles at Capital One, Discover,
-                Truist, Wells Fargo, MUFG Union Bank and TIAA. He has built and run technology and security
-                programs, and he has been the executive responsible for overseeing and challenging them.
+                He has held leadership roles at Capital One, Discover, Truist, Wells Fargo, MUFG Union Bank and
+                TIAA. He has built and run technology and security programs, and has held the oversight role that
+                holds them to account.
               </p>
               <p>
                 Ian has led global teams and complex regulatory engagements. He has advised financial institutions
-                on adopting artificial intelligence, and he still builds and secures artificial intelligence
-                systems himself.
+                on adopting artificial intelligence, and he still builds and secures these systems himself.
               </p>
               <p>
-                He holds a B.S. in Computer Science from the U.S. Naval Academy, served as an officer in the U.S.
-                Marine Corps and is a named inventor on four published U.S. patent applications.
+                He holds a B.S. in Computer Science from the U.S. Naval Academy and served as an officer in the U.S.
+                Marine Corps.
+              </p>
+              <p>
+                <a className="link" href={LINKEDIN_URL} rel="noopener noreferrer">
+                  Ian on LinkedIn
+                </a>
               </p>
             </div>
           </div>
