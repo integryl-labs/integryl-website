@@ -26,8 +26,8 @@ export default function PrivacyPage() {
         <p>
           When you submit the Engage form we receive the name, organization, email address, area of interest and
           message you provide. We use this information to respond to your inquiry and to conduct any engagement
-          that follows. Inquiries are delivered to us by email through our email service provider. This website
-          does not store them.
+          that follows. Inquiries are delivered to us through a third-party form and email service. This website
+          keeps no copy of them.
         </p>
 
         <h2>Integryl Intelligence</h2>

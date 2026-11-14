@@ -28,6 +28,6 @@ npm run e2e    # builds, then runs Playwright against the production server on p
 - `content/roles.ts` holds the two fractional roles.
 - `content/site.ts` holds navigation, contact details and the Integryl Intelligence URLs.
 - `lib/feed.ts` and `lib/latest-edition.ts` read the Beehiiv RSS feed for the home page card.
-- `app/api/engage/route.ts` sends Engage form inquiries through Resend.
+- `app/api/engage/route.ts` validates Engage form inquiries; `lib/deliver.ts` sends them through Resend, or through the previous site's Formspree form until the Resend settings exist.
 
 Integryl Intelligence itself is published on Beehiiv. This site links to it for reading and subscribing.

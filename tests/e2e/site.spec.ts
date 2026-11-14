@@ -249,7 +249,7 @@ test.describe("Engage form", () => {
     expect(bot.status()).toBe(200);
   });
 
-  test("the server reports failure when delivery is not configured", async ({ request }) => {
+  test("the server reports failure when no delivery route is available", async ({ request }) => {
     const response = await request.post("/api/engage", {
       data: { name: "Ada", organization: "First Bank", email: "ada@firstbank.com", interest: "", message: "Hello" },
     });

@@ -1,9 +1,10 @@
-import { Resend } from "resend";
+import { deliverInquiry } from "@/lib/deliver";
 import { validateEngage } from "@/lib/engage";
 
 /**
- * Receives an inquiry from the Engage form and emails it to the firm through
- * Resend, with the inquirer as reply-to. Nothing is stored.
+ * Receives an inquiry from the Engage form, validates it and passes it to the
+ * delivery route in lib/deliver (Resend, or Formspree until Resend is set up).
+ * This site keeps no copy.
  */
 export async function POST(request: Request) {
   let body: unknown;
@@ -22,40 +23,8 @@ export async function POST(request: Request) {
   const result = validateEngage(body);
   if (!result.ok) return Response.json(result, { status: 400 });
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.ENGAGE_TO_EMAIL;
-  const from = process.env.ENGAGE_FROM_EMAIL;
-  if (!apiKey || !to || !from) {
-    console.error("Engage form is not configured: RESEND_API_KEY, ENGAGE_TO_EMAIL and ENGAGE_FROM_EMAIL are required.");
-    return Response.json({ ok: false }, { status: 502 });
-  }
-
-  const { name, organization, email, interest, message } = result.data;
-  const subject = `Inquiry: ${interest} — ${organization}`.replace(/[\r\n]+/g, " ");
-
-  try {
-    const { error } = await new Resend(apiKey).emails.send({
-      from,
-      to,
-      replyTo: email,
-      subject,
-      text: [
-        `Name: ${name}`,
-        `Organization: ${organization}`,
-        `Email: ${email}`,
-        `Area of interest: ${interest}`,
-        "",
-        message,
-      ].join("\n"),
-    });
-    if (error) {
-      console.error("Resend rejected the inquiry email:", error.name, error.message);
-      return Response.json({ ok: false }, { status: 502 });
-    }
-  } catch (cause) {
-    console.error("Resend request failed:", cause instanceof Error ? cause.message : cause);
-    return Response.json({ ok: false }, { status: 502 });
-  }
+  const delivery = await deliverInquiry(result.data);
+  if (!delivery.ok) return Response.json({ ok: false }, { status: 502 });
 
   return Response.json({ ok: true });
 }
