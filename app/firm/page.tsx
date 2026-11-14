@@ -121,7 +121,7 @@ export default function FirmPage() {
             <div className="portrait" aria-hidden="true" />
             <div className="stack">
               <h3 className="leader-name">Ian Lassonde</h3>
-              <p className="label">Founder &amp; Principal</p>
+              <p className="label">Chief Executive Officer</p>
               <p className="lede">
                 Ian is the founder of Integryl and leads the firm’s advisory work with financial institutions
                 across artificial intelligence, cybersecurity and risk.
