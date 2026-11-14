@@ -24,12 +24,6 @@ const commitments = [
   },
 ];
 
-const credentials = [
-  "B.S. in Computer Science, U.S. Naval Academy",
-  "Former officer, U.S. Marine Corps",
-  "Named inventor on four published U.S. patent applications in cybersecurity risk and software delivery",
-];
-
 export default function FirmPage() {
   return (
     <>
@@ -129,26 +123,23 @@ export default function FirmPage() {
               <h3 className="leader-name">Ian Lassonde</h3>
               <p className="label">Chief Executive Officer</p>
               <p className="lede">
-                As Chief Executive Officer of Integryl, Ian advises senior leadership and boards on artificial
-                intelligence, cybersecurity and technology risk, and oversees Integryl Intelligence, the firm’s
-                research publication.
+                As Chief Executive Officer of Integryl, Ian leads a team of senior consultants and advises senior
+                leadership and boards on artificial intelligence, cybersecurity and technology risk.
               </p>
               <p>
                 He has spent his career in financial services, with leadership roles at Capital One, Discover,
                 Truist, Wells Fargo, MUFG Union Bank and TIAA. He has built and run technology and security
-                programs, and he has been the executive responsible for overseeing and challenging them. At
-                Discover, he was Head of Technology &amp; Data Risk Management.
+                programs, and he has been the executive responsible for overseeing and challenging them.
               </p>
               <p>
                 Ian has led global teams and complex regulatory engagements. He has advised financial institutions
                 on adopting artificial intelligence, and he still builds and secures artificial intelligence
                 systems himself.
               </p>
-              <ul className="ticks">
-                {credentials.map((credential) => (
-                  <li key={credential}>{credential}</li>
-                ))}
-              </ul>
+              <p>
+                He holds a B.S. in Computer Science from the U.S. Naval Academy, served as an officer in the U.S.
+                Marine Corps and is a named inventor on four published U.S. patent applications.
+              </p>
             </div>
           </div>
           <div className="point section-gap">

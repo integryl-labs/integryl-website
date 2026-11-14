@@ -378,7 +378,6 @@ a:hover > .cover, .cover-card:hover .cover { transform: translateY(-4px); box-sh
 .hero h1.hero-title--wide { max-width: 21ch; }
 .anchor { scroll-margin-top: 96px; }
 .leader-name { font-size: 2rem; }
-.stack > .ticks { margin-top: 1.5rem; }
 .compare thead td { border-bottom: 1px solid var(--navy); }
 .form-card h2 { font-size: 1.8rem; }
 
