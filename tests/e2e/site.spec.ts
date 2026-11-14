@@ -61,7 +61,8 @@ for (const route of routes) {
       const body = await page.locator("body").innerText();
       expect(body).not.toContain("Monthly Outlook");
       expect(body).not.toContain("Chief Risk Officer");
-      expect(body).not.toMatch(/independen/i);
+      // The retired independence claim. "Independent oversight" in the bio is a different thing.
+      expect(body).not.toMatch(/vendor.neutral|independent (firm|advi[cs])|sell products|referral fee/i);
       if (route.path !== "/privacy" && route.path !== "/terms") {
         expect(body).not.toMatch(/\d\s?%/);
         expect(body).not.toMatch(/\$\s?\d/);
@@ -96,6 +97,16 @@ test("home page stays at six sections", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("main > section")).toHaveCount(6);
   await expect(page.locator(".hero .btn")).toHaveCount(1);
+});
+
+test("firm page presents leadership without placeholders", async ({ page }) => {
+  await page.goto("/firm");
+  const body = await page.locator("main").innerText();
+  expect(body).toContain("Ian Lassonde");
+  expect(body).toContain("CHIEF EXECUTIVE OFFICER");
+  expect(body).toContain("U.S. Naval Academy");
+  expect(body).not.toMatch(/\[[^\]]+\]/);
+  expect(body).not.toContain("Founder");
 });
 
 test("role cards carry titles only, with no letter labels", async ({ page }) => {

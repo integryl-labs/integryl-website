@@ -24,6 +24,12 @@ const commitments = [
   },
 ];
 
+const credentials = [
+  "B.S. in Computer Science, U.S. Naval Academy",
+  "Former officer, U.S. Marine Corps",
+  "Named inventor on four published U.S. patent applications in cybersecurity risk and software delivery",
+];
+
 export default function FirmPage() {
   return (
     <>
@@ -123,9 +129,27 @@ export default function FirmPage() {
               <h3 className="leader-name">Ian Lassonde</h3>
               <p className="label">Chief Executive Officer</p>
               <p className="lede">
-                Ian is the founder of Integryl and leads the firm’s advisory work with financial institutions
-                across artificial intelligence, cybersecurity and risk.
+                Ian is a cybersecurity and technology risk executive who has spent his career in financial
+                services, with leadership roles at Capital One, Discover, Truist, Wells Fargo, MUFG Union Bank and
+                TIAA.
               </p>
+              <p>
+                He has built and led programs in both the first and second lines of defense, from hands-on
+                execution to independent oversight and challenge. At Discover, as Head of Technology &amp; Data Risk
+                Management, he led second line oversight of technology, cybersecurity, data, resiliency and
+                internal fraud risk, owned the enterprise business continuity and crisis management program, and
+                chaired the technology risk committee.
+              </p>
+              <p>
+                Ian has led global teams and complex regulatory engagements, and has advised financial institutions
+                on the early adoption of artificial intelligence and its risks. He remains hands-on, building and
+                securing artificial intelligence systems.
+              </p>
+              <ul className="ticks">
+                {credentials.map((credential) => (
+                  <li key={credential}>{credential}</li>
+                ))}
+              </ul>
             </div>
           </div>
           <div className="point section-gap">
