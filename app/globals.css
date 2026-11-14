@@ -300,10 +300,6 @@ a:hover > .cover, .cover-card:hover .cover { transform: translateY(-4px); box-sh
 .step h3 { font-size: 1.4rem; }
 .step p { font-size: 0.96rem; color: #CFD9DE; }
 
-/* Rhythm: the cadence of a fractional mandate */
-.rhythm { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(32px, 4vw, 56px) 0; }
-.rhythm .num { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.72rem; }
-
 /* Quote */
 .quote { display: grid; gap: 1.75rem; max-width: 52rem; }
 .quote blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.22; letter-spacing: var(--display-tracking); }
@@ -422,7 +418,7 @@ button.btn:disabled { opacity: 0.6; cursor: progress; }
   .split--portrait .portrait { max-width: 340px; }
   .brief-side { border-left: 0; border-top: 1px solid var(--border); }
   .grid-lines, .cols--3, .cols--4 { grid-template-columns: repeat(2, 1fr); }
-  .steps, .rhythm { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
+  .steps { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .editions li { grid-template-columns: 1fr auto; }
   .editions li > :nth-child(3) { grid-column: 1 / -1; grid-row: 2; }
@@ -431,7 +427,7 @@ button.btn:disabled { opacity: 0.6; cursor: progress; }
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .hero--navy { background-image: url("/img/hero-navy-mobile.svg"); background-position: center bottom; }
-  .grid-lines, .cols--2, .cols--3, .cols--4, .stats, .stats--2, .steps, .rhythm, .two, .engage-modes, .footer-top { grid-template-columns: 1fr; }
+  .grid-lines, .cols--2, .cols--3, .cols--4, .stats, .stats--2, .steps, .two, .engage-modes, .footer-top { grid-template-columns: 1fr; }
   .stat + .stat { border-left: 0; border-top: 1px solid var(--border); }
   .inline-form { flex-direction: column; gap: 0.6rem; }
   .inline-form input { border-right: 1px solid var(--border); }

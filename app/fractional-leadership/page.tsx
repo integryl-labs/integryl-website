@@ -9,37 +9,19 @@ export const metadata: Metadata = {
     "Your institution keeps its designated officer. Integryl stands behind them with a senior leader, intelligence tailored to your institution and clear priorities each quarter.",
 };
 
-/** The working rhythm of a mandate, by cadence. */
-const rhythm = [
+/** How a mandate works, in three parts. */
+const process = [
   {
-    when: "At the start",
     title: "Baseline",
-    body: "A structured self-diagnostic across our six practices produces a baseline report: a view of the program by practice and your leading priorities.",
+    body: "We begin with a baseline of the program and a profile of your institution: its regulators, its vendors and its systems.",
   },
   {
-    when: "Every day",
-    title: "Watch",
-    body: "The Daily Brief, and monitoring of the vendors you depend on. When something affects your institution, you hear from us the same day.",
+    title: "Intelligence",
+    body: "From then on, our intelligence is tailored to that profile. Your officer hears what matters to your institution, and what to do about it.",
   },
   {
-    when: "Every week",
-    title: "Tailored note",
-    body: "The developments that apply to your institution, why they matter and what to do about them.",
-  },
-  {
-    when: "Every month",
-    title: "Working session",
-    body: "Time with your Integryl leader on the decisions in front of you. Larger mandates add committee attendance and review of documents and decisions.",
-  },
-  {
-    when: "Every quarter",
-    title: "Priorities",
-    body: "A priorities memo and a board-ready summary, tracked against the baseline.",
-  },
-  {
-    when: "Every year",
-    title: "Record",
-    body: "The diagnostic is repeated to show progress, with a record of what was flagged and what we advised.",
+    title: "Counsel",
+    body: "A senior Integryl leader works with your officer in regular sessions, sets clear priorities each quarter and reports in terms your board can use.",
   },
 ];
 
@@ -139,20 +121,19 @@ export default function FractionalLeadershipPage() {
         <div className="wrap">
           <div className="section-head">
             <p className="label">How it works</p>
-            <h2>A working rhythm, built on intelligence about your institution.</h2>
+            <h2>Built on a baseline. Run on intelligence.</h2>
           </div>
-          <div className="rhythm">
-            {rhythm.map((beat) => (
-              <div className="step" key={beat.title}>
-                <span className="num">{beat.when}</span>
-                <h3>{beat.title}</h3>
-                <p>{beat.body}</p>
+          <div className="cols cols--3">
+            {process.map((part, index) => (
+              <div className="point" key={part.title}>
+                <span className="num">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{part.title}</h3>
+                <p>{part.body}</p>
               </div>
             ))}
           </div>
           <p className="fine note-gap">
-            Mandates scale with the institution: from counsel and priorities, to a seat in your committees, to
-            leading a defined piece of work each quarter.
+            Mandates scale with the institution, from counsel and priorities to a seat in your committees.
           </p>
         </div>
       </section>

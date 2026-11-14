@@ -92,6 +92,12 @@ test("fractional page offers exactly the two roles", async ({ page }) => {
   ]);
 });
 
+test("home page stays at six sections", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("main > section")).toHaveCount(6);
+  await expect(page.locator(".hero .btn")).toHaveCount(1);
+});
+
 test("role cards carry titles only, with no letter labels", async ({ page }) => {
   await page.goto("/fractional-leadership");
   await expect(page.locator(".seat .num")).toHaveCount(0);

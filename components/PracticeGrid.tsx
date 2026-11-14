@@ -9,7 +9,6 @@ export function PracticeGrid() {
         <Link key={practice.id} className="cell" href={`/advisory#${practice.id}`}>
           <span className="num">{String(index + 1).padStart(2, "0")}</span>
           <h3>{practice.name}</h3>
-          <p>{practice.line}</p>
           <span className="more">Explore</span>
         </Link>
       ))}
