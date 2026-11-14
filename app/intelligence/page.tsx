@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Closing } from "@/components/Closing";
 import { Bands, Cover } from "@/components/Cover";
-import { INTELLIGENCE_URL, SUBSCRIBE_URL } from "@/content/site";
+import { INTELLIGENCE_LIVE, INTELLIGENCE_URL, SUBSCRIBE_URL } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Integryl Intelligence",
@@ -27,18 +27,26 @@ export default function IntelligencePage() {
         <Bands />
         <div className="wrap hero-inner">
           <img className="lockup" src="/img/integryl-intelligence-navy.svg" alt="Integryl Intelligence" />
+          {INTELLIGENCE_LIVE ? null : (
+            <p className="label">
+              <span className="dot" aria-hidden="true" />
+              Coming soon
+            </p>
+          )}
           <h1 className="hero-title--wide">Executive intelligence for financial services leaders.</h1>
           <p className="lede">
-            Integryl Intelligence covers technology, cyber, artificial intelligence and risk. Every item is
-            sourced, and our analysis is clearly labeled.
+            {INTELLIGENCE_LIVE ? "Integryl Intelligence covers" : "Integryl Intelligence will cover"} technology,
+            cyber, artificial intelligence and risk. Every item is sourced, and our analysis is clearly labeled.
           </p>
           <div className="btn-row" id="subscribe">
             <a className="btn" href={SUBSCRIBE_URL}>
               Subscribe
             </a>
-            <a className="btn btn--ghost" href={INTELLIGENCE_URL}>
-              Read the latest edition
-            </a>
+            {INTELLIGENCE_LIVE ? (
+              <a className="btn btn--ghost" href={INTELLIGENCE_URL}>
+                Read the latest edition
+              </a>
+            ) : null}
           </div>
         </div>
       </section>
@@ -99,18 +107,30 @@ export default function IntelligencePage() {
         </div>
       </section>
 
-      <Closing
-        label="Integryl Intelligence"
-        title="Read the latest edition."
-        body="Current and past editions are published on the Integryl Intelligence site."
-      >
-        <a className="btn" href={INTELLIGENCE_URL}>
-          Visit Integryl Intelligence
-        </a>
-        <a className="btn btn--ghost" href={SUBSCRIBE_URL}>
-          Subscribe
-        </a>
-      </Closing>
+      {INTELLIGENCE_LIVE ? (
+        <Closing
+          label="Integryl Intelligence"
+          title="Read the latest edition."
+          body="Current and past editions are published on the Integryl Intelligence site."
+        >
+          <a className="btn" href={INTELLIGENCE_URL}>
+            Visit Integryl Intelligence
+          </a>
+          <a className="btn btn--ghost" href={SUBSCRIBE_URL}>
+            Subscribe
+          </a>
+        </Closing>
+      ) : (
+        <Closing
+          label="Coming soon"
+          title="The first edition is on its way."
+          body="Subscribe now to receive it when we launch."
+        >
+          <a className="btn" href={SUBSCRIBE_URL}>
+            Subscribe
+          </a>
+        </Closing>
+      )}
     </>
   );
 }

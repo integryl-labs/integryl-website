@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SUBSCRIBE_URL } from "@/content/site";
+import { INTELLIGENCE_LIVE, SUBSCRIBE_URL } from "@/content/site";
 import { getLatestEdition } from "@/lib/latest-edition";
 
 const dateFormat = new Intl.DateTimeFormat("en-US", {
@@ -11,11 +11,12 @@ const dateFormat = new Intl.DateTimeFormat("en-US", {
 });
 
 /**
- * The card under the home hero. Shows the newest Daily Brief when the feed
- * has one, and a standing introduction when it does not.
+ * The card under the home hero. Before launch it announces Integryl
+ * Intelligence as coming soon. After launch it shows the newest Daily Brief
+ * when the feed has one, and a standing introduction when it does not.
  */
 export async function LatestEdition() {
-  const edition = await getLatestEdition();
+  const edition = INTELLIGENCE_LIVE ? await getLatestEdition() : null;
 
   return (
     <section className="brief" aria-label="Integryl Intelligence">
@@ -44,13 +45,14 @@ export async function LatestEdition() {
                 <div className="brief-meta">
                   <p className="label">
                     <span className="dot" aria-hidden="true" />
-                    Integryl Intelligence
+                    {INTELLIGENCE_LIVE ? "Integryl Intelligence" : "Integryl Intelligence · Coming soon"}
                   </p>
                 </div>
                 <h2>Executive intelligence for financial services leaders.</h2>
                 <p>
-                  The Daily Brief covers the developments that matter each business morning. Deep Dives examine a
-                  single development in full.
+                  {INTELLIGENCE_LIVE
+                    ? "The Daily Brief covers the developments that matter each business morning. Deep Dives examine a single development in full."
+                    : "The Daily Brief will cover the developments that matter each business morning. Deep Dives will examine a single development in full."}
                 </p>
                 <p>
                   <Link className="link" href="/intelligence">
@@ -61,7 +63,7 @@ export async function LatestEdition() {
             )}
           </div>
           <div className="brief-side">
-            <h3>Receive the Daily Brief.</h3>
+            <h3>{INTELLIGENCE_LIVE ? "Receive the Daily Brief." : "Be first to receive it."}</h3>
             <p className="fine">
               Technology, cyber, artificial intelligence and risk for financial services leaders. Fully sourced,
               with our analysis clearly labeled.

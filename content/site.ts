@@ -16,6 +16,13 @@ export const INTELLIGENCE_URL = (
 
 export const SUBSCRIBE_URL = `${INTELLIGENCE_URL}/subscribe`;
 
+/**
+ * Integryl Intelligence has not published yet. Until NEXT_PUBLIC_INTELLIGENCE_LIVE
+ * is set to "true", the site presents it as coming soon: visitors can subscribe,
+ * but nothing links to editions that do not exist. Launch is that one variable.
+ */
+export const INTELLIGENCE_LIVE = process.env.NEXT_PUBLIC_INTELLIGENCE_LIVE === "true";
+
 export const nav = [
   { href: "/advisory", label: "Advisory" },
   { href: "/fractional-leadership", label: "Fractional Leadership" },

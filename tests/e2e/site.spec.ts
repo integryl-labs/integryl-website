@@ -173,6 +173,20 @@ test("header and footer links resolve", async ({ page, request }) => {
   }
 });
 
+test("Intelligence is presented as coming soon until it launches", async ({ page }) => {
+  await page.goto("/intelligence");
+  const main = page.locator("main");
+  await expect(main).toContainText("Coming soon");
+  await expect(main).toContainText("The first edition is on its way.");
+  await expect(main.getByRole("link", { name: /latest edition|Visit Integryl Intelligence/i })).toHaveCount(0);
+  await expect(main.getByRole("link", { name: "Subscribe" })).toHaveCount(2);
+
+  await page.goto("/");
+  await expect(page.locator(".brief")).toContainText("Coming soon");
+  await expect(page.locator(".brief")).toContainText("Be first to receive it.");
+  await expect(page.locator("footer").getByRole("link", { name: "Latest edition" })).toHaveCount(0);
+});
+
 test("subscribe and read links go to the Intelligence publication", async ({ page }) => {
   await page.goto("/intelligence");
   const subscribe = page.getByRole("link", { name: "Subscribe" }).first();
