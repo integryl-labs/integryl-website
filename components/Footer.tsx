@@ -26,7 +26,7 @@ export function Footer() {
             <Link href="/intelligence#daily-brief">Daily Brief</Link>
             <Link href="/intelligence#deep-dives">Deep Dives</Link>
             {INTELLIGENCE_LIVE ? <a href={INTELLIGENCE_URL}>Latest edition</a> : null}
-            <a href={SUBSCRIBE_URL}>Subscribe</a>
+            {INTELLIGENCE_LIVE ? <a href={SUBSCRIBE_URL}>Subscribe</a> : null}
           </nav>
           <nav className="footer-col" aria-label="Firm">
             <p className="label">Firm</p>

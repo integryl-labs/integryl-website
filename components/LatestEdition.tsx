@@ -21,7 +21,7 @@ export async function LatestEdition() {
   return (
     <section className="brief" aria-label="Integryl Intelligence">
       <div className="wrap">
-        <div className="brief-card">
+        <div className={`brief-card${INTELLIGENCE_LIVE ? "" : " brief-card--single"}`}>
           <div className="brief-main">
             {edition ? (
               <>
@@ -62,19 +62,21 @@ export async function LatestEdition() {
               </>
             )}
           </div>
-          <div className="brief-side">
-            <h3>{INTELLIGENCE_LIVE ? "Receive the Daily Brief." : "Be first to receive it."}</h3>
-            <p className="fine">
-              Technology, cyber, artificial intelligence and risk for financial services leaders. Fully sourced,
-              with our analysis clearly labeled.
-            </p>
-            <div className="btn-row">
-              <a className="btn" href={SUBSCRIBE_URL}>
-                Subscribe
-              </a>
+          {INTELLIGENCE_LIVE ? (
+            <div className="brief-side">
+              <h3>Receive the Daily Brief.</h3>
+              <p className="fine">
+                Technology, cyber, artificial intelligence and risk for financial services leaders. Fully sourced,
+                with our analysis clearly labeled.
+              </p>
+              <div className="btn-row">
+                <a className="btn" href={SUBSCRIBE_URL}>
+                  Subscribe
+                </a>
+              </div>
+              <p className="fine">Complimentary. Unsubscribe at any time.</p>
             </div>
-            <p className="fine">Complimentary. Unsubscribe at any time.</p>
-          </div>
+          ) : null}
         </div>
       </div>
     </section>

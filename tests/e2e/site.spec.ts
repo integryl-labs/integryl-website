@@ -178,19 +178,19 @@ test("Intelligence is presented as coming soon until it launches", async ({ page
   const main = page.locator("main");
   await expect(main).toContainText("Coming soon");
   await expect(main).toContainText("The first edition is on its way.");
-  await expect(main.getByRole("link", { name: /latest edition|Visit Integryl Intelligence/i })).toHaveCount(0);
-  await expect(main.getByRole("link", { name: "Subscribe" })).toHaveCount(2);
 
   await page.goto("/");
   await expect(page.locator(".brief")).toContainText("Coming soon");
-  await expect(page.locator(".brief")).toContainText("Be first to receive it.");
-  await expect(page.locator("footer").getByRole("link", { name: "Latest edition" })).toHaveCount(0);
 });
 
-test("subscribe and read links go to the Intelligence publication", async ({ page }) => {
-  await page.goto("/intelligence");
-  const subscribe = page.getByRole("link", { name: "Subscribe" }).first();
-  await expect(subscribe).toHaveAttribute("href", /beehiiv\.com\/subscribe$|integryl\.com\/subscribe$/);
+test("nothing offers a subscription or links to the publication before launch", async ({ page }) => {
+  for (const path of ["/", "/intelligence", "/advisory", "/fractional-leadership", "/firm", "/engage"]) {
+    await page.goto(path);
+    await expect(page.getByRole("link", { name: /subscribe/i }), path).toHaveCount(0);
+    await expect(page.getByRole("button", { name: /subscribe/i }), path).toHaveCount(0);
+    await expect(page.locator('a[href*="beehiiv"]'), path).toHaveCount(0);
+    await expect(page.getByRole("link", { name: /latest edition|Visit Integryl Intelligence/i }), path).toHaveCount(0);
+  }
 });
 
 test("unknown addresses return the branded 404", async ({ page }) => {

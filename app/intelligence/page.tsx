@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- brand SVG, served as-is */
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Closing } from "@/components/Closing";
 import { Bands, Cover } from "@/components/Cover";
 import { INTELLIGENCE_LIVE, INTELLIGENCE_URL, SUBSCRIBE_URL } from "@/content/site";
@@ -38,16 +39,16 @@ export default function IntelligencePage() {
             {INTELLIGENCE_LIVE ? "Integryl Intelligence covers" : "Integryl Intelligence will cover"} technology,
             cyber, artificial intelligence and risk. Every item is sourced, and our analysis is clearly labeled.
           </p>
-          <div className="btn-row" id="subscribe">
-            <a className="btn" href={SUBSCRIBE_URL}>
-              Subscribe
-            </a>
-            {INTELLIGENCE_LIVE ? (
+          {INTELLIGENCE_LIVE ? (
+            <div className="btn-row" id="subscribe">
+              <a className="btn" href={SUBSCRIBE_URL}>
+                Subscribe
+              </a>
               <a className="btn btn--ghost" href={INTELLIGENCE_URL}>
                 Read the latest edition
               </a>
-            ) : null}
-          </div>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -124,11 +125,11 @@ export default function IntelligencePage() {
         <Closing
           label="Coming soon"
           title="The first edition is on its way."
-          body="Subscribe now to receive it when we launch."
+          body="In the meantime, see how we work with financial institutions."
         >
-          <a className="btn" href={SUBSCRIBE_URL}>
-            Subscribe
-          </a>
+          <Link className="btn" href="/advisory">
+            Explore Advisory
+          </Link>
         </Closing>
       )}
     </>
