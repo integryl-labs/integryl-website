@@ -1,0 +1,26 @@
+export const SITE_URL = "https://integryl.com";
+export const SITE_NAME = "Integryl";
+export const TAGLINE = "Risk advisory for financial institutions.";
+export const CONTACT_EMAIL = "hello@integryl.com";
+export const OFFICE = "Hilton Head, South Carolina";
+
+/**
+ * Integryl Intelligence is published on Beehiiv. Every "read" and "subscribe"
+ * link on the site derives from this one base URL, so moving the publication
+ * to intelligence.integryl.com is a single environment-variable change.
+ */
+export const INTELLIGENCE_URL = (
+  process.env.NEXT_PUBLIC_INTELLIGENCE_URL ?? "https://integryl-intelligence.beehiiv.com"
+).replace(/\/+$/, "");
+
+export const SUBSCRIBE_URL = `${INTELLIGENCE_URL}/subscribe`;
+
+export const nav = [
+  { href: "/advisory", label: "Advisory" },
+  { href: "/fractional-leadership", label: "Fractional Leadership" },
+  { href: "/intelligence", label: "Intelligence" },
+  { href: "/firm", label: "Firm" },
+];
+
+/** Routes whose hero is navy, so the header renders in its dark variant. */
+export const darkHeaderRoutes = ["/", "/fractional-leadership"];
