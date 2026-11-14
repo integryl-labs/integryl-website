@@ -107,6 +107,9 @@ test("firm page presents leadership without placeholders", async ({ page }) => {
   expect(body).toContain("U.S. Naval Academy");
   expect(body).not.toMatch(/\[[^\]]+\]/);
   expect(body).not.toContain("Founder");
+  const portrait = page.getByRole("img", { name: /Ian Lassonde/ });
+  await expect(portrait).toBeVisible();
+  expect(await portrait.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
   await expect(page.getByRole("link", { name: "Ian on LinkedIn" })).toHaveAttribute(
     "href",
     "https://www.linkedin.com/in/ianlassonde/",

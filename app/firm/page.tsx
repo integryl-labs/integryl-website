@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Closing } from "@/components/Closing";
 import { CONTACT_EMAIL, LINKEDIN_URL } from "@/content/site";
@@ -118,7 +119,14 @@ export default function FirmPage() {
             <h2>Our leadership.</h2>
           </div>
           <div className="split split--portrait">
-            <div className="portrait" aria-hidden="true" />
+            <Image
+              className="portrait-photo"
+              src="/img/ian-lassonde.jpg"
+              alt="Ian Lassonde, Chief Executive Officer of Integryl"
+              width={512}
+              height={512}
+              sizes="(max-width: 640px) 90vw, 340px"
+            />
             <div className="stack">
               <h3 className="leader-name">Ian Lassonde</h3>
               <p className="label">Chief Executive Officer</p>
