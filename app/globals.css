@@ -300,11 +300,6 @@ a:hover > .cover, .cover-card:hover .cover { transform: translateY(-4px); box-sh
 .step h3 { font-size: 1.4rem; }
 .step p { font-size: 0.96rem; color: #CFD9DE; }
 
-/* Quote */
-.quote { display: grid; gap: 1.75rem; max-width: 52rem; }
-.quote blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.22; letter-spacing: var(--display-tracking); }
-.quote cite { font-style: normal; }
-
 /* Practice blocks on the Advisory page */
 .practice { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: clamp(28px, 6vw, 96px); padding-block: clamp(40px, 5vw, 72px); border-top: 1px solid var(--border); scroll-margin-top: 96px; }
 .practice-head { display: grid; gap: 1rem; align-content: start; }
@@ -384,8 +379,6 @@ a:hover > .cover, .cover-card:hover .cover { transform: translateY(-4px); box-sh
 .anchor { scroll-margin-top: 96px; }
 .leader-name { font-size: 2rem; }
 .compare thead td { border-bottom: 1px solid var(--navy); }
-.quote figcaption { margin: 0; }
-figure.quote { margin: 0; }
 .form-card h2 { font-size: 1.8rem; }
 
 /* Form states */

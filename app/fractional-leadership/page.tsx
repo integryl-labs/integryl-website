@@ -155,19 +155,6 @@ export default function FractionalLeadershipPage() {
         </div>
       </section>
 
-      <section className="section section--ivory2">
-        <div className="wrap">
-          <figure className="quote">
-            <hr className="rule rule--brass" />
-            <blockquote>
-              “A designated officer should not have to carry the role alone. We stand behind them with the judgment
-              and the intelligence the role demands.”
-            </blockquote>
-            <figcaption className="label">Ian Lassonde · Founder &amp; Principal, Integryl</figcaption>
-          </figure>
-        </div>
-      </section>
-
       <Closing
         label="Engage"
         title="Strengthen the officer you already have."
