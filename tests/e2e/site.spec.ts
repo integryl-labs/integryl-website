@@ -120,6 +120,8 @@ test("fractional page speaks to institutions with and without an officer", async
   const body = await page.locator("main").innerText();
   expect(body).not.toContain("officer you already have");
   expect(body).not.toContain("keeps its own officer");
+  expect(body).toContain("cover the role for a defined period");
+  expect(body).toContain("permanent named officer");
 });
 
 test.describe("mobile menu", () => {

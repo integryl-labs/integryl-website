@@ -21,7 +21,7 @@ const situations = [
   },
   {
     title: "You have no one yet",
-    body: "We help you decide where the role should sit and who should hold it, and we support them from the first day.",
+    body: "We help you decide where the role should sit and who should hold it, and we can cover the role for a defined period while you appoint.",
   },
 ];
 
@@ -120,8 +120,8 @@ export default function FractionalLeadershipPage() {
             ))}
           </div>
           <p className="fine note-gap">
-            The two roles may be combined in a single mandate. Where an institution needs a named officer,
-            examination preparation or incident response, we scope that separately.
+            The two roles may be combined in a single mandate. Where an institution needs a permanent named
+            officer, examination preparation or incident response, we scope that separately.
           </p>
         </div>
       </section>
