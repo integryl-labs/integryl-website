@@ -1,9 +1,7 @@
-/* eslint-disable @next/next/no-img-element -- brand SVG, served as-is */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Closing } from "@/components/Closing";
 import { practices } from "@/content/practices";
-import { FRACTIONAL_OFFER } from "@/content/roles";
 
 export const metadata: Metadata = {
   title: "Advisory",
@@ -56,23 +54,6 @@ export default function AdvisoryPage() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="section section--ivory2 section--rule clip">
-        <img className="ghost-mark" src="/img/integryl-symbol-two-tone.svg" alt="" />
-        <div className="wrap stack rel">
-          <p className="label">{FRACTIONAL_OFFER}</p>
-          <h2 className="measure">Six practices, through one senior leader.</h2>
-          <p className="lede">
-            Fractional leadership puts a senior Integryl leader, and the full firm, behind the person who carries
-            the role.
-          </p>
-          <div className="btn-row">
-            <Link className="btn" href="/fractional-leadership">
-              View the roles
-            </Link>
-          </div>
         </div>
       </section>
 

@@ -60,6 +60,7 @@ for (const route of routes) {
       await page.goto(route.path);
       const body = await page.locator("body").innerText();
       expect(body).not.toContain("Monthly Outlook");
+      expect(body).not.toMatch(/draft for review|working draft/i);
       expect(body).not.toContain("Chief Risk Officer");
       // The retired independence claim. "Independent oversight" in the bio is a different thing.
       expect(body).not.toMatch(/vendor.neutral|independent (firm|advi[cs])|sell products|referral fee/i);
@@ -114,6 +115,12 @@ test("firm page presents leadership without placeholders", async ({ page }) => {
     "href",
     "https://www.linkedin.com/in/ianlassonde/",
   );
+});
+
+test("advisory page ends with a single closing block", async ({ page }) => {
+  await page.goto("/advisory");
+  await expect(page.locator("main > section")).toHaveCount(3);
+  await expect(page.locator("main")).not.toContainText("View the roles");
 });
 
 test("role cards carry titles only, with no letter labels", async ({ page }) => {
