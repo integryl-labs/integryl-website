@@ -12,9 +12,6 @@ export default function TermsPage() {
       <div className="wrap prose">
         <p className="label">Legal</p>
         <h1 className="h1-page">Terms of use</h1>
-        <p className="draft-banner">
-          Draft for review. This text is a working draft and has not been approved for publication.
-        </p>
         <p className="fine">Last updated: November 14, 2026</p>
 
         <p>These terms govern your use of integryl.com. By using the site you accept them.</p>

@@ -12,9 +12,6 @@ export default function PrivacyPage() {
       <div className="wrap prose">
         <p className="label">Legal</p>
         <h1 className="h1-page">Privacy</h1>
-        <p className="draft-banner">
-          Draft for review. This text is a working draft and has not been approved for publication.
-        </p>
         <p className="fine">Last updated: November 14, 2026</p>
 
         <p>
